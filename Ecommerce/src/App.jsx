@@ -1,8 +1,12 @@
+import { useState } from "react"
+import NavBar from "./components/NavBar/NavBar/"
 
 function App() {
-  return (
+    const [cartCount, setCartCount] = useState(5)
+
+    return (
     <>
-      <h1>Hola</h1>
+      <NavBar cartCount={cartCount}/>
     </>
   )
 }
