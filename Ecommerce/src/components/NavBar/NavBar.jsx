@@ -10,11 +10,26 @@ function NavBar({cartCount, title}) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+{/*                         <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
+                        </li> */}
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+                            <a className="nav-link" href="/category/motherboard">Placas Madre</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Contacto</a>
+                            <a className="nav-link" href="/category/processor">Procesadores</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/category/storage">Almacenamiento</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/category/monitor">Monitores</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/category/case">Gabinetes</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/category/monitor">Perifericos</a>
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
