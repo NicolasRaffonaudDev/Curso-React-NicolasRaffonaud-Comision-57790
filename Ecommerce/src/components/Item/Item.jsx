@@ -6,7 +6,7 @@ const Item = ({id, name, img, category, price}) => {
         <img src={img} style={{width: 100}} />
         <p>Category: {category}</p>
         <h2>{price}</h2>
-        <link to={`/detail/${id}`}> Ver detalle</link>
+        <a href={`/detail/${id}`} >Ver Detalle</a>
         <hr />
     </article>
   )
