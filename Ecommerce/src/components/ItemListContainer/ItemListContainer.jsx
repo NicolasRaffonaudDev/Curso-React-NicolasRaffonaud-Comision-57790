@@ -29,7 +29,7 @@ function ItemListContainer({ greetings }) {
             <h2 className="text-center m-5 fs-1">{greetings}</h2>
             <ItemList products={productos} />
             {categorias.map ((category) => (
-                <div key={category.id} className="m-auto card p-3 text-center" style={{width: '18rem'}}>
+                <div key={category.id} className="m-auto my-5 card p-3 text-center" style={{width: '18rem'}}>
                     <img src={category.imagen} className="card-img-top" alt={category.nombre} />
                         <div className="card-body">
                             <h5 className="card-title">{category.nombre}</h5>

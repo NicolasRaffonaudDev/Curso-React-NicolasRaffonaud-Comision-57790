@@ -4,7 +4,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 function App() {
-    const [cartCount, setCartCount] = useState(5)
+    const [cartCount, setCartCount] = useState(0)
 
     const handleCount = () => {
       setCartCount ( x => x+1 )
@@ -12,7 +12,7 @@ function App() {
     return (
     <BrowserRouter>
       <NavBar cartCount={cartCount} title="Tienda de componentes de PC" />
-      {/* <button className="btn btn-success d-flex m-auto mt-5" onClick={handleCount}>Sumar carrito</button> */}
+      <button className="btn btn-success d-flex m-auto mt-5" onClick={handleCount}>Sumar carrito</button>
       <Routes>
         <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
         <Route path="/category/:id" element={<ItemListContainer />} />
