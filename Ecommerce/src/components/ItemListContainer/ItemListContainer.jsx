@@ -14,9 +14,9 @@ const categorias = [
 
 function ItemListContainer({ greetings }) {
     //console.log(categorias)
-    const [products, setProducts] = useState ([])
-    const {category} = useParams()
-    console.log(category) 
+    const [productos, setProducts] = useState ([])
+    const {categoria} = useParams()
+    console.log(categoria) 
 
     useEffect( () => {
         getProducts().then((res)=>{
@@ -27,7 +27,7 @@ function ItemListContainer({ greetings }) {
     return (
         <>
             <h2 className="text-center m-5 fs-1">{greetings}</h2>
-            <ItemList products={products} />
+            <ItemList products={productos} />
             {categorias.map ((category) => (
                 <div key={category.id} className="m-auto card p-3 text-center" style={{width: '18rem'}}>
                     <img src={category.imagen} className="card-img-top" alt={category.nombre} />
