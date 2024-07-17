@@ -14,7 +14,7 @@ function App() {
       <NavBar cartCount={cartCount} title="Tienda de componentes de PC" />
       {/* <button className="btn btn-success d-flex m-auto mt-5" onClick={handleCount}>Sumar carrito</button> */}
       <Routes>
-        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
         <Route path="/category/:id" element={<ItemListContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
           
