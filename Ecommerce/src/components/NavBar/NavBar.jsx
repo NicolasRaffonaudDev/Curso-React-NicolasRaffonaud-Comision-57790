@@ -1,4 +1,5 @@
-import CardWidget from "../CardWidget/CardWidget"
+import CardWidget from "../CardWidget/CardWidget";
+import { Link } from "react-router-dom";
 
 function NavBar({cartCount, title}) {
   return (
@@ -14,22 +15,22 @@ function NavBar({cartCount, title}) {
                             <a className="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
                         </li> */}
                         <li className="nav-item">
-                            <a className="nav-link" href="/category/motherboard">Placas Madre</a>
+                            <Link className="nav-link" to="/category/motherboard">Placas Madre</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/category/processor">Procesadores</a>
+                            <Link className="nav-link" to="/category/processor">Procesadores</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/category/storage">Almacenamiento</a>
+                            <Link className="nav-link" to="/category/storage">Almacenamiento</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/category/monitor">Monitores</a>
+                            <Link className="nav-link" to="/category/monitor">Monitores</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/category/case">Gabinetes</a>
+                            <Link className="nav-link" to="/category/case">Gabinetes</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/category/monitor">Perifericos</a>
+                            <Link className="nav-link" to="/category/monitor">Perifericos</Link>
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
