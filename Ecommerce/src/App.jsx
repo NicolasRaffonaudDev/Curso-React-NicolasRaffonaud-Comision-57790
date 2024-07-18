@@ -15,8 +15,8 @@ function App() {
       <button className="btn btn-success d-flex m-auto mt-5" onClick={handleCount}>Sumar carrito</button>
       <Routes>
         <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
-        <Route path="/category/:id" element={<ItemListContainer />} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="/category/:category" element={<ItemListContainer />} />
+        <Route path="/detail/:id" element={<ItemDetailContainer />} />
           
 {/*           <ItemListContainer greetings="Bienvenido a la Guarida del HardWare" />
           <ItemListContainer />

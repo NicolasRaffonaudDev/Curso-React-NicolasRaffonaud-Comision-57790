@@ -15,10 +15,10 @@ function NavBar({cartCount, title}) {
                             <a className="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
                         </li> */}
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/motherboard">Placas Madre</Link>
+                            <Link className="nav-link" to="/category/Motherboard">Placas Madre</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/processor">Procesadores</Link>
+                            <Link className="nav-link" to="/category/Procesadores">Procesadores</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/category/storage">Almacenamiento</Link>

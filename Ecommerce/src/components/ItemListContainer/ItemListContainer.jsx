@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getProducts, getProductById } from "../../asyncMock";
+import { getProducts, getProductById, getProductsByCategory } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
@@ -12,18 +12,28 @@ const categorias = [
     { id: 6, nombre: "Perifericos", imagen: "/src/assets/periferics-logo.png" }
 ]
 
-function ItemListContainer({ greetings }) {
+const ItemListContainer = ({ greetings }) => {
     //console.log(categorias)
     const [products, setProducts] = useState ([])
+    const {category} = useParams ()
+    console.log(category)
     const {categoria} = useParams()
     console.log(categoria) 
 
     useEffect( () => {
-        getProducts().then((res)=>{
-            setProducts(res)
-        })
-        .catch((err)=>console.log(err))
-    } )
+        if(!category){
+            getProducts().then((res)=>{
+                setProducts(res)
+            })
+            .catch((err)=>console.log(err))   
+        } else {
+            getProductsByCategory(category)
+                .then((res)=>{
+                    setProducts(res)
+                })
+                .catch((err)=> console.log(err))
+        }
+    }, [category] )
     return (
         <>
             <h2 className="text-center m-5 fs-1">{greetings}</h2>
