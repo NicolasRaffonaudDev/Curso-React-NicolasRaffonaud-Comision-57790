@@ -17,10 +17,6 @@ function App() {
         <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
         <Route path="/category/:category" element={<ItemListContainer />} />
         <Route path="/detail/:id" element={<ItemDetailContainer />} />
-          
-{/*           <ItemListContainer greetings="Bienvenido a la Guarida del HardWare" />
-          <ItemListContainer />
-          <ItemDetailContainer /> */}
       </Routes>
     </BrowserRouter>
   )

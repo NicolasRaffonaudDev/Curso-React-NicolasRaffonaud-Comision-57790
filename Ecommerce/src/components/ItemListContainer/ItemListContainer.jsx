@@ -13,7 +13,6 @@ const categorias = [
 ]
 
 const ItemListContainer = ({ greetings }) => {
-    //console.log(categorias)
     const [products, setProducts] = useState ([])
     const {category} = useParams ()
     console.log(category)
