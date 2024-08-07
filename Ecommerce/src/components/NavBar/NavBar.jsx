@@ -5,7 +5,7 @@ function NavBar({cartCount, title}) {
   return (
     <nav className="navbar navbar-dark navbar-expand-md bg-dark p-3 text-white">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">{title}</a>
+                <a className="navbar-brand" href="../../">{title}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
