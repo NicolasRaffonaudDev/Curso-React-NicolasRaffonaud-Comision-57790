@@ -11,7 +11,7 @@ function App() {
     }
     return (
     <BrowserRouter>
-      <NavBar cartCount={cartCount} title="Tienda de componentes de PC" />
+      <NavBar cartCount={cartCount} title="HardWare Raffonaud" />
       <button className="btn btn-success d-flex m-auto mt-5" onClick={handleCount}>Sumar carrito</button>
       <Routes>
         <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
