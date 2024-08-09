@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import CardWidget from "../CardWidget/CardWidget";
 import { Link } from "react-router-dom";
+import { Contexto } from "../../App"
 
 function NavBar({cartCount, title}) {
+
+    const valor = useContext(Contexto);
+    console.log(valor)
+
   return (
     <nav className="navbar navbar-dark navbar-expand-md bg-dark p-3 text-white">
             <div className="container-fluid">
