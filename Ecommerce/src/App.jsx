@@ -1,34 +1,26 @@
-import { useContext } from "react";
-import { ThemeContext, ThemeProvider } from "./context/ThemeContext";
+import { useState } from "react"
+import NavBar from "./components/NavBar/NavBar"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 
 
 function App() {
-  return (
-    <ThemeProvider>
-      <Home/>
-    </ThemeProvider>
-  );
-}
+    const [cartCount, setCartCount] = useState(0)
 
-function Home() {
-  
-  const { isDarkMode } = useContext(ThemeContext)
-  
-  return (
-    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
-      <h1>{isDarkMode ? "Dark Mode" : "Light Mode"}</h1>
-      <ThemeToggle />
-    </div>
-  )
-}
-
-const ThemeToggle = () => {
-  const {isDarkMode, toggleTheme} = useContext(ThemeContext)
-
-  return (
-    <button onClick={toggleTheme}>
-      {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-    </button>
+    const handleCount = () => {
+      setCartCount ( x => x+1 )
+    }
+    return (
+    <BrowserRouter>
+        <NavBar cartCount={cartCount} title="HardWare Raffonaud" />
+        <button className="btn btn-success d-flex m-auto mt-5" onClick={handleCount}>Sumar carrito</button>
+        <Routes>
+          <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
+          <Route path="/category/:category" element={<ItemListContainer />} />
+          <Route path="/detail/:id" element={<ItemDetailContainer />} />
+        </Routes>
+    </BrowserRouter>
   )
 }
 
