@@ -2,7 +2,7 @@
 import CardWidget from "../CardWidget/CardWidget";
 import { Link } from "react-router-dom";
 
-function NavBar({cartCount, title}) {
+function NavBar({title}) {
 
   return (
     <nav className="navbar navbar-dark navbar-expand-md bg-dark p-3 text-white">
@@ -36,7 +36,7 @@ function NavBar({cartCount, title}) {
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
-                        <CardWidget cartCount={cartCount}/>
+                        <CardWidget />
                     </form>
                 </div>
             </div>
