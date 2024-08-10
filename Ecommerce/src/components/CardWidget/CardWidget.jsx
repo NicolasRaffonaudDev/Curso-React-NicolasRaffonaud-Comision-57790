@@ -1,9 +1,11 @@
-import { useContext } from "react";
+//import { useContext } from "react";
 import logo from "../../assets/react.svg"
-import { CartContext } from "../../context/CartContext";
+//import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../Hooks/useCart";
 
 function CardWidget() {
-  const { totalQuantity } = useContext(CartContext)
+  //const { totalQuantity } = useContext(CartContext)
+  const {totalQuantity} = useCart()
   return (
   <a className="nav-link" href="#">
     {/* <svg

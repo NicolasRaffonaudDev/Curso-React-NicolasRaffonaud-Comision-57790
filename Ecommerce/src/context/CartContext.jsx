@@ -12,7 +12,7 @@ export const CartProvider = ({children}) => {
     };
     const addItem = (productToAdd) => {
         if(!isInCart(productToAdd.id)){
-            setCart( prev  => [...prev, productToAdd])
+            setCart( prev => [...prev, productToAdd])
         }else {
             console.error("El producto ya esta en el carrito")
         }
@@ -28,7 +28,7 @@ export const CartProvider = ({children}) => {
 
     const totalQuantity = getTotalQuantity()
 
-    const obj = { cart, isInCart, addItem, totalQuantity }
+    const obj = { cart, isInCart, addItem, totalQuantity };
     
     return(
         <CartContext.Provider value={obj}>
