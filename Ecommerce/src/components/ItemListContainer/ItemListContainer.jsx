@@ -14,25 +14,31 @@ const categorias = [
 
 const ItemListContainer = ({ greetings }) => {
     const [products, setProducts] = useState ([])
+    const [loading, setLoading] = useState(true)
     const {category} = useParams ()
     console.log(category)
     const {categoria} = useParams()
     console.log(categoria) 
 
     useEffect( () => {
-        if(!category){
-            getProducts().then((res)=>{
-                setProducts(res)
-            })
-            .catch((err)=>console.log(err))   
-        } else {
-            getProductsByCategory(category)
-                .then((res)=>{
-                    setProducts(res)
-                })
-                .catch((err)=> console.log(err))
-        }
+        
+        const asyncFunctions = category ? getProductsByCategory : getProducts 
+        asyncFunctions(category)
+        .then((res) => {
+            setProducts(res)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
     }, [category] )
+
+    if(loading) {
+        return <h3 style={{color: "white", backgroundColor: "red", textAlign: "center"}}>Cargando productos...</h3>
+    }
+
     return (
         <>
             <h2 className="text-center m-5 fs-1">{greetings}</h2>

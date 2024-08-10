@@ -1,6 +1,7 @@
 
 import CardWidget from "../CardWidget/CardWidget";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import './NavBar.css'
 
 function NavBar({title}) {
 
@@ -17,22 +18,22 @@ function NavBar({title}) {
                             <a className="nav-link active" aria-current="page" href="../../">Inicio</a>
                         </li> 
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/Motherboard">Placas Madre</Link>
+                            <NavLink className={( {isActive} ) => (isActive ? "ActiveOption" : "Option")} to="/category/Motherboard">Placas Madre</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/Procesadores">Procesadores</Link>
+                            <NavLink className={( {isActive} ) => (isActive ? "ActiveOption" : "Option")} to="/category/Processor">Procesadores</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/storage">Almacenamiento</Link>
+                            <NavLink className={( {isActive} ) => (isActive ? "ActiveOption" : "Option")} to="/category/storage">Almacenamiento</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/monitor">Monitores</Link>
+                            <NavLink className={( {isActive} ) => (isActive ? "ActiveOption" : "Option")} to="/category/monitor">Monitores</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/case">Gabinetes</Link>
+                            <NavLink className={( {isActive} ) => (isActive ? "ActiveOption" : "Option")} to="/category/case">Gabinetes</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/monitor">Perifericos</Link>
+                            <NavLink className={( {isActive} ) => (isActive ? "ActiveOption" : "Option")} to="/category/Perifiers">Perifericos</NavLink>
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
