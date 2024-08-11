@@ -7,6 +7,11 @@ import { CartProvider } from "./Context/CartContext"
 //import Memorize from "./Memo/Memorize"
 
 function App() {
+    //const [cartCount, setCartCount] = useState(0)
+
+    /* const handleCount = () => {
+      setCartCount ( x => x+1 )
+    } */
     return (
     <>
 
