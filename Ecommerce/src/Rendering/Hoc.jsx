@@ -1,5 +1,6 @@
 function withLogging(WrappedComponent) {
-    return function (props) {
+    // eslint-disable-next-line react/display-name
+    return function(props) {
         console.log("Componente renderizado con props: ", props)
         return <WrappedComponent {...props} />
     }
