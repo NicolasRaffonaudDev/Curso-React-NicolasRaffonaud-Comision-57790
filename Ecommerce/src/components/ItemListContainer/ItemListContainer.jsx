@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { getProducts, getProductsByCategory } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { db } from "../../services/firebase";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
 
 const categorias = [
     { id: 1, nombre: "Placas Base", imagen: "/src/assets/placaMadre-logo.webp" },
@@ -16,12 +18,28 @@ const ItemListContainer = ({ greetings }) => {
     const [products, setProducts] = useState ([])
     const [loading, setLoading] = useState(true)
     const {category} = useParams ()
-    console.log(category)
     const {categoria} = useParams()
     console.log(categoria) 
 
     useEffect( () => {
-        
+        setLoading(true)
+        const collectionRef = categoryId
+        ? query(collection(db, "products"), where("category", "==", categoryId))
+        : collection(db, "products")
+
+        getDocs(collectionRef)
+            .then((querySnapshot)=>{
+                const products = querySnapshot.docs.map((doc)=>{
+                    return {id: doc.id, ...doc.data()}
+                })
+                setProducts(products)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally(()=>{
+                setLoading(false)
+            })
         const asyncFunctions = category ? getProductsByCategory : getProducts 
         asyncFunctions(category)
         .then((res) => {
