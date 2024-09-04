@@ -4,6 +4,7 @@ import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { db } from "../../services/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useNotification } from "../../Context/NotificationContext";
 
 const categorias = [
     { id: 1, nombre: "Placas Base", imagen: "/src/assets/placaMadre-logo.webp" },
@@ -19,7 +20,8 @@ const ItemListContainer = ({ greetings }) => {
     const [loading, setLoading] = useState(true)
     const {category} = useParams ()
     const {categoria} = useParams()
-    console.log(categoria) 
+    console.log(categoria)
+    const {setNotification} = useNotification() 
 
     useEffect(() => {
         setLoading(true)
@@ -34,8 +36,8 @@ const ItemListContainer = ({ greetings }) => {
                 })
                 setProducts(products)
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                setNotification("danger", `No es posible cargar los productos`)
             })
             .finally(()=>{
                 setLoading(false)

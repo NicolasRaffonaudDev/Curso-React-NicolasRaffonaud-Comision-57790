@@ -1,7 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
+const Notification = ({message, severity}) => {
+    const background = {
+        success: 'green',
+        warning: 'orange',
+        default: 'blue',
+        danger: 'red',
+    }
 
-export const NotificationContext = createContext
+    const notificationStyles = {
+        position: 'absolute',
+        top: '100',
+        right: '30',
+        backgroundColor: background[severity] || background.default,
+        color: 'white'
+    };
+
+    if(message === '') return
+    return <div style={notificationStyles}>{message}</div>
+}
+
+const NotificationContext = createContext();
 
 export const NotificationProvider = ({children}) => {
     const [message, setMessage] = useState('')
@@ -24,26 +43,6 @@ export const NotificationProvider = ({children}) => {
 
 }
 
-const Notification = ({message, severity}) => {
-    const background = {
-        success: 'green',
-        warning: 'orange',
-        default: 'blue',
-        danger: 'red',
-    }
-
-    const notificationStyles = {
-        position: 'absolute',
-        top: '100',
-        right: '30',
-        backgroundColor: background[severity] || background.default,
-        color: 'white'
-    };
-
-    if(message === '') return
-    return (
-        <div style={notificationStyles}>
-            {message}
-        </div>
-    )
+export const useNotification = () => {
+    return useContext(NotificationContext)
 }

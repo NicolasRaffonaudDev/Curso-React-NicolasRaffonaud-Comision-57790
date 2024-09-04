@@ -6,6 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { CartProvider } from "./Context/CartContext" 
 import Cart from "./components/Cart/Cart"
 import Checkout from "./components/Checkout/Checkout"
+import { NotificationProvider } from "./Context/NotificationContext"
 //import Memorize from "./Memo/Memorize"
 
 function App() {
@@ -18,20 +19,22 @@ function App() {
     <>
 
       <BrowserRouter>
-        <CartProvider>    
-          <NavBar title="HardWare Raffonaud" />          
-          <Routes>
-            <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
-            <Route path="/category/:category" element={<ItemListContainer />} />
-            <Route path="/detail/:id" element={<ItemDetailContainer />} />
+        <NotificationProvider>
+          <CartProvider>    
+            <NavBar title="HardWare Raffonaud" />          
+            <Routes>
+              <Route path="/" element={<ItemListContainer greetings="Bienvenido a la Guarida del HardWare."/>} />
+              <Route path="/category/:category" element={<ItemListContainer />} />
+              <Route path="/detail/:id" element={<ItemDetailContainer />} />
 
-            <Route path="/cart" element={<Cart />}/>
+              <Route path="/cart" element={<Cart />}/>
 
-            <Route path="/checkout" element={<Checkout />}/>
+              <Route path="/checkout" element={<Checkout />}/>
 
-            <Route path="*" element={<h1>: (  404 Not found</h1>}/>
-          </Routes>
-        </CartProvider>
+              <Route path="*" element={<h1>: (  404 Not found</h1>}/>
+            </Routes>
+          </CartProvider>
+        </NotificationProvider>
       </BrowserRouter>    
 {/*       <Memorize /> */}
     </>

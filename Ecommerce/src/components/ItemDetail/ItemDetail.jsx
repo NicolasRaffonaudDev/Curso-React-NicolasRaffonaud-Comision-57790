@@ -1,21 +1,23 @@
-//import { useContext } from "react"
 import { useCart } from "../../Hooks/useCart"
+import { useNotification } from "../../Context/NotificationContext"
 import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
 import { Link } from "react-router-dom"
-//import { CartContext } from "../../context/CartContext"
+
 
 
 const ItemDetail = ({name, img, price, category, description, stock, id}) => {
 
   //const [quantity, setQuantity] = useState(0)
   const {addItem, isInCart} = useCart()
+  const { } = useNotification()
 
   const handleAdd = (count) => {
     const productObj = {
       id, name, price, quantity: count
     }
     addItem(productObj) 
+    setNotification("success", `Se agregaron ${count} de ${name}`)
     //setQuantity(cantidad)
   }
 
