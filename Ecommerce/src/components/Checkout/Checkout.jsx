@@ -8,7 +8,7 @@ const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderCreated, setOrderCreated] = useState(false);
 
-    const {cart, totalQuantity, getTotal} = useCart()
+    const {cart, totalQuantity, getTotal, clearCart} = useCart()
     const total = getTotal()
     const createOrder = async () => {
         setLoading(true)
@@ -57,9 +57,13 @@ const Checkout = () => {
 
                     const orderRef = collection(db, "orders")
                     const orderAdded = await addDoc(orderRef, objOrder);
-
+                    console.log(`El id de su orden es ${orderAdded.id}`);
                     setOrderCreated(true)
-                }else {}
+                    clearCart()
+                }else {
+                    // aca debo realizar una logica de compra o encargo de producto
+                    console.log("Hay Productos que estan fuera de stock")
+                }
 
         }catch(error){
             console.log("asd")

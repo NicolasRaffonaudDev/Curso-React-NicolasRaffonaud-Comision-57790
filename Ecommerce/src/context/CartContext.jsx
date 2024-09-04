@@ -18,6 +18,14 @@ export const CartProvider = ({children}) => {
         }
     }
 
+    const removeItem = (id) => {
+        const cartUpdated = cart.filter((prod) => prod.id != id)
+    }
+    
+    const clearCart = () => {
+        setCart([]);
+    }
+
     const getTotalQuantity = () => {
         let accu = 0;
         cart.forEach(prod => {
@@ -36,7 +44,15 @@ export const CartProvider = ({children}) => {
 
     const totalQuantity = getTotalQuantity()
 
-    const obj = { cart, isInCart, addItem, totalQuantity, getTotal };
+    const obj = { 
+        cart, 
+        isInCart, 
+        addItem, 
+        totalQuantity, 
+        getTotal,
+        removeItem,
+        clearCart,
+        };
     
     return(
         <CartContext.Provider value={obj}>

@@ -2,7 +2,7 @@
 
 const CartItem = ({name, quantity, price}) => {
   return (
-    <article>
+    <article className="CardCartItem">
         <header>
             <h2>
                 {name}
