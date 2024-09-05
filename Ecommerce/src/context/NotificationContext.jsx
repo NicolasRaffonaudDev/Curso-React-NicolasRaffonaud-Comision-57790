@@ -31,7 +31,7 @@ export const NotificationProvider = ({children}) => {
         setSeverity(sev);
         setTimeout(()=>{
             setMessage("")
-        }, 3000);
+        },3000);
     }
 
     return (
