@@ -42,17 +42,6 @@ const ItemListContainer = ({ greetings }) => {
             .finally(()=>{
                 setLoading(false)
             })
-        //const asyncFunctions = category ? getProductsByCategory : getProducts 
-        /* asyncFunctions(category)
-        .then((res) => {
-            setProducts(res)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-        .finally(() => {
-            setLoading(false)
-        }) */
     }, [category] )
 
     if(loading) {
