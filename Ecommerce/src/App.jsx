@@ -1,4 +1,3 @@
-//import { useState } from "react"
 import NavBar from "./components/NavBar/NavBar"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
@@ -7,17 +6,11 @@ import { CartProvider } from "./Context/CartContext"
 import Cart from "./components/Cart/Cart"
 import Checkout from "./components/Checkout/Checkout"
 import { NotificationProvider } from "./Context/NotificationContext"
-//import Memorize from "./Memo/Memorize"
+
 
 function App() {
-    //const [cartCount, setCartCount] = useState(0)
-
-    /* const handleCount = () => {
-      setCartCount ( x => x+1 )
-    } */
     return (
     <>
-
       <BrowserRouter>
         <NotificationProvider>
           <CartProvider>    
@@ -36,7 +29,6 @@ function App() {
           </CartProvider>
         </NotificationProvider>
       </BrowserRouter>    
-{/*       <Memorize /> */}
     </>
   )
 }

@@ -34,16 +34,16 @@ const Checkout = () => {
                 query(productRef, where(documentId(), "in", ids)))
                 const {docs} = productsAddedFromFirestore;
 
-                //const outOfStock = [] 
+                const outOfStock = [] 
 
                 const batch = writeBatch(db)
 
-                docs.forEach(()=>{
+                docs.forEach((doc)=>{
                     const dataDoc = doc.data()
                     const stockDB = dataDoc.stock
 
                     const productAddedToCart = cart.find((prod) => prod.id === doc.id)
-                    const productQuantity = productAddedToCart?.quantity
+                    const productQuantity = productAddedToCart?.quantity;
 
                     if(stockDB >= productQuantity) {
                         batch.update(doc.ref, {stock: stockDB - productQuantity})
@@ -81,12 +81,26 @@ const Checkout = () => {
     }
   return (
     <>
+        <div>
+            {cart.map((item) => (
+            <article key={item.id}>
+                <header>
+                <h2 className="text-secondary text-center bg-info m-5">
+                    {item.name}{" "}
+                    <span className="badge">Cantidad: {totalQuantity}</span>
+                </h2>
+                </header>
+            </article>
+            ))}
+        </div>
         <h1>
             Checkout
         </h1>
-        <button className="btn btn-primary" onClick={createOrder}>
-            Generar Orden
-        </button>
+        <div className="d-flex justify-content-center p-3">
+            <button className="btn btn-primary" onClick={createOrder}>
+                Generar Orden
+            </button>
+        </div>
     </>
   )
 }
